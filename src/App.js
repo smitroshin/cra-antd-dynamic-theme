@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useCallback, useState } from 'react';
+import { Select } from 'antd';
+import DemoTable from './DemoTable';
 import './App.css';
 
-function App() {
+import { defaultThemeId, themes, useAntdTheme } from './theming';
+
+const options = themes.map((theme) => ({
+  label: theme.displayName,
+  value: theme.id,
+}));
+
+export default function App() {
+  const [themeId, setThemeId] = useState(defaultThemeId);
+
+  useAntdTheme(themeId);
+
+  const selectThemeId = useCallback((option) => setThemeId(option), []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Select
+        value={themeId}
+        style={{ minWidth: 200 }}
+        options={options}
+        onSelect={selectThemeId}
+      />
+      <DemoTable />
+    </>
   );
 }
-
-export default App;

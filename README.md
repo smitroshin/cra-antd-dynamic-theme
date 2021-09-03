@@ -1,3 +1,18 @@
+# ANTD dynamic theme switching
+
+## CRA + CRACO + ANTD
+
+This example is based on [dynamic-antd-theme-demo](https://github.com/momesana/dynamic-antd-theme-demo), but using create-react-app, @craco/craco, craco-less.
+
+`craco` is used for overriding CRA webpack config.\
+`craco-less` is a craco plugin for compiling `antd` ".less" files.
+
+## !!! Production build doesn't work !!!
+
+This example work only on devServer.\
+App crashes in browser in production mode.\
+I didn't found the solution :C
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
